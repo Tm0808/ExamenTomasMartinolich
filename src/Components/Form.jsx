@@ -7,23 +7,25 @@ const Form = () => {
     nombre: "",
     modelo: "",
   });
-  const [show, setShow] = useState(false);
-  const [error, setError] = useState(false);
+  const [showCard, setShowCard] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const { nombre, modelo } = auto;
 
+    // Validación del primer input
     const isNombreValid = nombre.trim().length >= 3 && !nombre.startsWith(' ');
 
+    // Validación del segundo input
     const isModeloValid = modelo.length >= 6;
 
     if (isNombreValid && isModeloValid) {
-      setShow(true);
-      setError(false);
+      setShowCard(true);
+      setShowError(false);
     } else {
-      setShow(false);
-      setError(true);
+      setShowCard(false);
+      setShowError(true);
     }
   };
 
@@ -64,13 +66,76 @@ const Form = () => {
         />
         <button type="submit">Enviar</button>
       </form>
-      {show && <Card auto={auto} />}
-      {error && <ErrorMessage />}
+      {showCard && <Card auto={auto} />}
+      {showError && <ErrorMessage />}
     </>
   );
 };
 
 export default Form;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
